@@ -1,8 +1,5 @@
-import os
 import requests
 from datetime import datetime, timedelta
-
-# API_KEY = os.environ['TMDB_API_KEY']
 
 
 class TMDb:
