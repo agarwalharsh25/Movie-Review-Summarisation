@@ -1,5 +1,5 @@
 import io
-import json
+import json                                                                                                                      
 import os
 import tempfile
 
@@ -11,8 +11,10 @@ from googleapiclient.http import MediaIoBaseDownload
 
 class GoogleDriveManager:
 
-  def __init__(self, client_credentials_file):
-    self.client_credentials_file = client_credentials_file
+  def __init__(self, client_id, client_secret, project_id):
+    self.client_id = client_id
+    self.client_secret = client_secret
+    self.project_id = project_id
     self.scopes = ['https://www.googleapis.com/auth/drive']
     self.credentials = self.get_credentials()
 
@@ -20,8 +22,19 @@ class GoogleDriveManager:
       self.drive_service = build('drive', 'v3', credentials=self.credentials)
 
   def get_credentials(self):
-    flow = InstalledAppFlow.from_client_secrets_file(
-        self.client_credentials_file, self.scopes)
+    flow = InstalledAppFlow.from_client_config(
+        {
+            "installed": {
+                "client_id": self.client_id,
+                "client_secret": self.client_secret,
+                "project_id": self.project_id,
+                "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                "token_uri": "https://accounts.google.com/o/oauth2/token",
+                "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                "redirect_uris": ["http://localhost"]
+            }
+        },
+        scopes=self.scopes)
     credentials = flow.run_local_server(port=0)
     return credentials
 
@@ -154,8 +167,11 @@ class GoogleDriveManager:
 
 # Example usage:
 if __name__ == "__main__":
-  credentials_file_path = 'credentials_client_id.json'
-  drive = GoogleDriveManager(credentials_file_path)
+  client_id = os.environ['GOOGLE_CLIENT_ID']
+  client_secret = os.environ['GOOGLE_CLIENT_SECRET']
+  project_id = os.environ['GOOGLE_PROJECT_ID']
+
+  drive = GoogleDriveManager(client_id, client_secret, project_id)
 
   folder_id = drive.get_folder_id('Projects/MovieReviews')
   print(folder_id)
@@ -166,6 +182,6 @@ if __name__ == "__main__":
   file_name = "movies.json"
   drive.write_json_to_drive(data, sub_folder_name, file_name)
 
-  # # Read data from Google Drive
-  # read_data = drive.read_json_from_drive(sub_folder_name, file_name)
-  # print("Data read from Google Drive:", read_data)
+  # Read data from Google Drive
+  read_data = drive.read_json_from_drive(sub_folder_name, file_name)
+  print("Data read from Google Drive:", read_data)
