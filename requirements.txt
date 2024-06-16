@@ -1,3 +1,7 @@
 requests
 os
 googleapiclient
+cohere
+tmdb
+uvicorn
+fastapi
