@@ -39,7 +39,7 @@ def main():
                 "updated_at": review["updated_at"]
             }
             review_details.append(review_obj)
-        with open('data/movies/movies.json', 'w') as file:
+        with open(f'data/reviews/{movie["id"]}.json', 'w') as file:
             json.dump(review_details, file)
     
         movie_obj = {
