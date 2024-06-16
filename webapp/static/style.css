@@ -1,0 +1,100 @@
+body {
+    font-family: Lato, sans-serif;;
+    padding: 40px;
+    background-color: #EAE7DC;
+}
+
+header {
+    padding: 40px;
+    margin-left: -40px;
+    margin-right: -40px;
+    margin-top: -40px;
+    background-color: #E85A4F
+}
+
+#header-title {
+    font-family: Papyrus;
+    color: #FFFFFF;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+#main {
+     padding-top: 40px;
+}
+
+#posters-grid {
+    text-align: justify;
+}
+
+#posters-grid img {
+    width: 125px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    padding: 6px;
+    border-radius: 12px;
+}
+
+#posters-grid img:hover {
+    transform: scale(1.1);
+}
+
+#placeholder {
+    padding: 12px;
+    margin: 6px;
+    height: fit-content;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#placeholder-title {
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+}
+
+#project-icon {
+    color: #E85A4F;
+    font-size: xx-large;
+}
+
+#project-name {
+    font-family: Papyrus;
+    color: #E85A4F;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+#placeholder-body {
+    font-size: large;
+    text-align: justify;
+}
+
+#placeholder-instruction {
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* #details-content {
+    padding: 20px;
+}
+
+#details-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#details-content h2 {
+    margin-top: 0;
+}
+
+#review-summary {
+    list-style-type: none;
+    padding: 0;
+}
+
+#review-summary li {
+    margin-bottom: 10px;
+} */

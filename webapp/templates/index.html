@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Pulse</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div id="header-title">
+            <i class="fas fa-clapperboard icon"></i> Movie Pulse
+        </div>
+        <!-- <img src="/static/images/clapboard-icon.png" alt="Clapboard Icon" class="icon"> -->
+    </header>
+    <div id="main" class="row d-flex">
+        <div id="posters-grid" class="col-md-7">
+            {% for movie in movies %}
+                <img src="https://image.tmdb.org/t/p/w185{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster" data-movie="{{ movie | tojson }}">
+            {% endfor %}
+        </div>
+        <div id="movie-details" class="col-md-5">
+            <div id="placeholder">
+                <p id="placeholder-title">
+                    <span id="project-name"><i class="fas fa-clapperboard icon"></i> Movie Pulse</span>
+                </p>
+                <br>
+                <p id="placeholder-title">
+                    Explore movies like never before!
+                </p>
+                <br>
+                <p id="placeholder-body">Powered by AI, it summarises movie reviews and sentiments from across platforms like Reddit into clear insights, alongside detailed ratings on storytelling, cinematography, and more. It will help you choose which films to watch and uncover popular opinions.</p>
+                <br>
+                <p id="placeholder-instruction">Click on a movie poster in the grid to uncover insightful critiques!</p>
+            </div>
+            <div id="details-content" class="d-none">
+                <img id="cover-image" src="" alt="Cover Image" class="img-fluid">
+                <h2 id="movie-title"></h2>
+                <p id="genre"></p>
+                <p id="plot-synopsis"></p>
+                <p id="release-date"></p>
+                <h3>Review Summary</h3>
+                <ul id="review-summary"></ul>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="/static/script.js"></script> -->
+</body>
+</html>
