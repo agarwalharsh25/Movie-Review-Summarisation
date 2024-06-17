@@ -11,20 +11,19 @@
 <body>
     <header>
         <div id="header-title">
-            <i class="fas fa-clapperboard icon"></i> Movie Pulse
+            <i class="fas fa-clapperboard"></i> Movie Pulse
         </div>
-        <!-- <img src="/static/images/clapboard-icon.png" alt="Clapboard Icon" class="icon"> -->
     </header>
     <div id="main" class="row d-flex">
-        <div id="posters-grid" class="col-md-7">
+        <div id="posters-grid" class="col-md-6">
             {% for movie in movies %}
-                <img src="https://image.tmdb.org/t/p/w185{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster" data-movie="{{ movie | tojson }}">
+                <img src="https://image.tmdb.org/t/p/original{{ movie.poster_path }}" alt="{{ movie.title }}" class="movie-poster" data-movie="{{ movie.json_data }}">
             {% endfor %}
         </div>
-        <div id="movie-details" class="col-md-5">
+        <div id="movie-details" class="col-md-6">
             <div id="placeholder">
                 <p id="placeholder-title">
-                    <span id="project-name"><i class="fas fa-clapperboard icon"></i> Movie Pulse</span>
+                    <span id="project-name"><i class="fas fa-clapperboard"></i> Movie Pulse</span>
                 </p>
                 <br>
                 <p id="placeholder-title">
@@ -36,16 +35,120 @@
                 <p id="placeholder-instruction">Click on a movie poster in the grid to uncover insightful critiques!</p>
             </div>
             <div id="details-content" class="d-none">
-                <img id="cover-image" src="" alt="Cover Image" class="img-fluid">
-                <h2 id="movie-title"></h2>
-                <p id="genre"></p>
-                <p id="plot-synopsis"></p>
-                <p id="release-date"></p>
-                <h3>Review Summary</h3>
-                <ul id="review-summary"></ul>
+                <img id="movie-cover-image" src="" alt="Cover Image">
+                <div id="details-content-main">
+                    <div id="details-content-metadata" class="row">
+                        <div class="col-md-3 p-0">
+                            <img id="movie-poster-image" src="" alt="Poster Image">
+                        </div>
+                        <div class="col-md-9 p-0">
+                            <p>
+                                <span id="movie-title"></span><br>
+                                <span id="movie-release-date"></span> | <span id="movie-genres"></span>
+                            </p>
+                            <p id="movie-plot-synopsis"> </p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="details-content-review" class="row">
+                        <div class="col-md-12 p-0">
+                            <p id="project-name">
+                                <i class="fas fa-clapperboard icon"></i> Movie Pulse Review
+                            </p>
+                        </div>
+                        <div id="movie-review-summary" class="col-md-12 p-0"></div>
+                    </div>
+                    <br>
+                    <div class="details-content-review-evaluation-main row">
+                        <div id="storyline" class="details-content-review-evaluation col-md-6">
+                            <div id="movie-review-evaluation">
+                                <div>
+                                    <span id="review-evaluation-title"><i class="fas fa-scroll"></i> Storyline</span> 
+                                    <span id="review-evaluation-rating-block">
+                                        <span id="review-evaluation-star"><i class="fas fa-star"></i></span> 
+                                        <span id="review-evaluation-rating"></span>
+                                        <span id="review-evaluation-rating-total">/5</span>
+                                    </span>
+                                </div>
+                                <br><br>
+                                <span id="review-evaluation-content"></span>
+                            </div>
+                        </div>
+                        <div id="cinematography" class="details-content-review-evaluation col-md-6">
+                            <div id="movie-review-evaluation">
+                                <div>
+                                    <span id="review-evaluation-title"><i class="fas fa-tape"></i> Cinematography</span> 
+                                    <span id="review-evaluation-rating-block">
+                                        <span id="review-evaluation-star"><i class="fas fa-star"></i></span>
+                                        <span id="review-evaluation-rating"></span>
+                                        <span id="review-evaluation-rating-total">/5</span>
+                                    </span>
+                                </div>
+                                <br><br>
+                                <span id="review-evaluation-content"></span>
+                            </div>
+                        </div>
+                        <div id="direction" class="details-content-review-evaluation col-md-6">
+                            <div id="movie-review-evaluation">
+                                <div>
+                                    <span id="review-evaluation-title"><i class="fas fa-film"></i> Direction</span> 
+                                    <span id="review-evaluation-rating-block">
+                                        <span id="review-evaluation-star"><i class="fas fa-star"></i></span>
+                                        <span id="review-evaluation-rating"></span>
+                                        <span id="review-evaluation-rating-total">/5</span>
+                                    </span>
+                                </div>
+                                <br><br>
+                                <span id="review-evaluation-content"></span>
+                            </div>
+                        </div>
+                        <div id="performances" class="details-content-review-evaluation col-md-6">
+                            <div id="movie-review-evaluation">
+                                <div>
+                                    <span id="review-evaluation-title"><i class="fas fa-masks-theater"></i> Acting</span> 
+                                    <span id="review-evaluation-rating-block">
+                                        <span id="review-evaluation-star"><i class="fas fa-star"></i></span>
+                                        <span id="review-evaluation-rating"></span>
+                                        <span id="review-evaluation-rating-total">/5</span>
+                                    </span>
+                                </div>
+                                <br><br>
+                                <span id="review-evaluation-content"></span>
+                            </div>
+                        </div>
+                        <div id="dialogues" class="details-content-review-evaluation col-md-6">
+                            <div id="movie-review-evaluation">
+                                <div>
+                                    <span id="review-evaluation-title"><i class="fas fa-comments"></i> Dialogues</span> 
+                                    <span id="review-evaluation-rating-block">
+                                        <span id="review-evaluation-star"><i class="fas fa-star"></i></span>
+                                        <span id="review-evaluation-rating"></span>
+                                        <span id="review-evaluation-rating-total">/5</span>
+                                    </span>
+                                </div>
+                                <br><br>
+                                <span id="review-evaluation-content"></span>
+                            </div>
+                        </div>
+                        <div id="soundtrack" class="details-content-review-evaluation col-md-6">
+                            <div id="movie-review-evaluation">
+                                <div>
+                                    <span id="review-evaluation-title"><i class="fas fa-music"></i> Soundtrack</span> 
+                                    <span id="review-evaluation-rating-block">
+                                        <span id="review-evaluation-star"><i class="fas fa-star"></i></span>
+                                        <span id="review-evaluation-rating"> 4.5</span>
+                                        <span id="review-evaluation-rating-total">/5</span>
+                                    </span>
+                                </div>
+                                <br><br>
+                                <span id="review-evaluation-content"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- <script src="/static/script.js"></script> -->
+    <script src="/static/script.js"></script>
 </body>
 </html>

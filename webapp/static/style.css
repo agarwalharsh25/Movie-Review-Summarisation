@@ -76,25 +76,113 @@ header {
     font-weight: bold;
 }
 
-/* #details-content {
-    padding: 20px;
+ #details-content {
+     margin: 6px;
+     height: fit-content;
+     border-radius: 12px;
+     background-color: rgba(255, 255, 255, 0.4);
+     position: relative;
 }
 
-#details-content img {
+#movie-cover-image {
     width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    border-radius: 12px 12px 0px 0px;
+    display: block;
+    z-index: -1;
 }
 
-#details-content h2 {
-    margin-top: 0;
+#details-content-main {
+    padding: 16px;
 }
 
-#review-summary {
-    list-style-type: none;
-    padding: 0;
+#details-content-metadata {
+    position: relative;
+    margin: 0px;
+    margin-top: -92px;
+    padding: 12px;
+    border-radius: 12px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-#review-summary li {
-    margin-bottom: 10px;
-} */
+#movie-poster-image {
+    padding: 6px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+#details-content-metadata #movie-title {
+    padding-left: 12px;
+    padding-top: 6px;
+    color: #E85A4F;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+#details-content-metadata #movie-release-date {
+    padding-left: 12px;
+    font-size: x-small;
+    font-weight: bold;
+}
+
+#details-content-metadata #movie-genres {
+    padding-right: 12px;
+    font-size: x-small;
+    font-weight: bold;
+}
+
+#details-content-metadata #movie-plot-synopsis {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 6px;
+}
+
+#details-content-review {
+    margin: 0px;
+    padding: 12px;
+    border-radius: 12px;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 1.0);
+}
+
+#details-content-review-evaluation-main {
+    margin: 0px;
+}
+
+.details-content-review-evaluation {
+    padding: 12px;
+}
+
+#movie-review-evaluation {
+    margin: 0px;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 1.0);
+    float: left;
+    text-align: left;
+}
+
+#review-evaluation-title {
+    color: #E85A4F;
+    font-size: larger;
+    font-weight: bolder;
+    float: left;
+}
+
+#review-evaluation-rating-block {
+    float: right;
+    font-weight: bolder;
+}
+
+#review-evaluation-star {
+    color: #FFCC00;
+    font-size: larger;
+}
+
+#review-evaluation-rating {
+    color: #FFCC00;
+    font-size: larger;
+}
+
+#review-evaluation-content {
+}
