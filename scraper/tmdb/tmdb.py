@@ -14,7 +14,7 @@ class TMDb:
     if response.status_code == 200:
       return response.json()
     else:
-      print(f"Error: {response.status_code}")
+      print(f"Error: {response.json()} \n Request: {(url, params)}")
       return None
 
   def fetch_movies(self, language, min_vote_count, days, max_pages=None):
@@ -51,7 +51,7 @@ class TMDb:
     return data
 
   def fetch_reviews(self, movie_id, max_pages=None):
-    url = f"{self.base_url}/movie/{movie_id}/reviews"
+    url = f"{self.base_url}movie/{movie_id}/reviews"
 
     data = []
 
@@ -73,7 +73,7 @@ class TMDb:
     return data
 
   def fetch_genres(self):
-    url = f"{self.base_url}/genre/movie/list"
+    url = f"{self.base_url}genre/movie/list"
 
     params = {"api_key": self.api_key, "languange": "en-US"}
 
